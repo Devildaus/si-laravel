@@ -1,0 +1,22 @@
+.button {
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: rgb(74, 193, 98);
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-color: rgb(74, 193, 98);
+    color: rgb(255, 255, 255);
+}
+
+.button:active {
+    background-color: rgb(74, 193, 98);
+    color: rgb(255, 255, 255);
+    transform: translateY(4px);
+}
