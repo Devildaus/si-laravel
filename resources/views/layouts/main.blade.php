@@ -14,7 +14,7 @@
 
 <body>
   @include('split.navbar')
-
+  @yield('container1')
   <div class="container mt-4">
     @yield('container')
   </div>

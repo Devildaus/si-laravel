@@ -1,4 +1,7 @@
 @extends('layouts.main')
+@section('container1')
+@include('split.daftar')
+@endsection
 @section('container')
 @include('split.image')
 <h1 style="margin-top:50px; margin-bottom: 50px;">What's New</h1>

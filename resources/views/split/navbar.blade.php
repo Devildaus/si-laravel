@@ -46,13 +46,13 @@
   </ul>
 </div>
 <nav class="navbar navbar-expand-md navbar-dark bg-primary rounded-pill d-flex justify-content-between">
-  <div class="container">
+  <div class="container" style="justify-content: center;">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav" style="font-family: Montserrat;
+    <div class="collapse navbar-collapse" id="navbarNav" style="font-family: 'work-sans';
     font-weight: 600;
-    font-size: 25px;">
+    font-size: 15px;">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link {{ ($active === 'home') ? 'active' : '' }}" href="/">Home</a>
@@ -67,12 +67,13 @@
           <a class="nav-link {{ ($active === 'categories') ? 'active' : '' }}" href="/categories">Categories</a>
         </li>
       </ul>
+      <form action="/posts" class="form-inline" style="margin-left: 750px;">
+        <div class="input-group">
+          <input type="text" class="form-control me-2" name="search" placeholder="Search.." value="{{ request('search') }}">
+          <button class="btn btn-secondary rounded-pill" type="submit">Search</button>
+        </div>
+      </form>
     </div>
-    <form action="/posts" class="form-inline">
-      <div class="input-group">
-        <input type="text" class="form-control me-2" name="search" placeholder="Search.." value="{{ request('search') }}">
-        <button class="btn btn-secondary rounded-pill" type="submit">Search</button>
-      </div>
-    </form>
+
   </div>
 </nav>
