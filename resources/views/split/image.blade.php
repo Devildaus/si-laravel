@@ -1,16 +1,16 @@
 <div class="slider" id="slider1">
-    <img src="https://source.unsplash.com/500x500?cool" alt="" />
-    <img src="https://source.unsplash.com/500x500?beauty" alt="" />
-    <img src="https://source.unsplash.com/500x500?sad" alt="" />
-    <img src="https://source.unsplash.com/500x500?happy" alt="" />
-    <img src="https://source.unsplash.com/500x500?ass" alt="" />
+    <img src="https://source.unsplash.com/1200x300?cool" alt="" />
+    <img src="https://source.unsplash.com/1200x300?beauty" alt="" />
+    <img src="https://source.unsplash.com/1200x300?sad" alt="" />
+    <img src="https://source.unsplash.com/1200x300?happy" alt="" />
+    <img src="https://source.unsplash.com/1200x300?ass" alt="" />
 </div>
 <style>
     .slider {
         border-radius: 10px;
         margin-top: 5px;
         position: relative;
-        width: 100%;
+        max-width: 100%;
         height: 300px;
     }
 

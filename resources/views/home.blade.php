@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('container')
-<h1 style="margin-bottom: 50px;">What's New</h1>
+@include('split.image')
+<h1 style="margin-top:50px; margin-bottom: 50px;">What's New</h1>
 @if ($posts->count())
 <div class="container">
         <div class="row">
@@ -24,12 +25,17 @@
                 @endforeach
         </div>
 </div>
+
 @else
 <p class="text-center fs-4">Not Found</p>
 @endif
-<div class="d-flex justify-content-end">
-        <a href="/posts?category={{ $post->category->name }}">Lebih Banyak</a>
+<div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-primary" style="margin-bottom:1rem;">
+                <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
+        </button>
 </div>
+
+
 
 <h1 style="margin-bottom: 50px;">Pengumuman</h1>
 @if ($posts2->count())
@@ -59,9 +65,12 @@
 @else
 <p class="text-center fs-4">Not Found</p>
 @endif
-<div class="d-flex justify-content-end">
-        <a href="/posts?category={{ $post->category->name }}">Lebih Banyak</a>
+<div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-primary" style="margin-bottom:4rem;">
+                <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
+        </button>
 </div>
+
 
 
 @endsection
