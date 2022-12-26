@@ -19,12 +19,12 @@
             @csrf
             <div class="box-register ">
                 <i class="fas fa-solid fa-user"></i>
-                <input type="text" placeholder="Name" name="name" id="name" class="form-control rounded-top @error('name') is-invalid @enderror
+                <input type="text" placeholder="Name" name="name" id="name" class="@error('name') rounded-top bg-danger @enderror
 " required value="{{ old('name') }}">
             </div>
             <div class="box-register">
                 <i class="fas fa-solid fa-user-secret"></i>
-                <input type="text" placeholder="Username" name="username" id="username" class="form-control rounded-top @error('username') is-invalid @enderror
+                <input type="text" placeholder="Username" name="username" id="username" class="@error('username') rounded-top bg-danger @enderror
 " value="{{ old('username') }}">
             </div>
             @error('username')
@@ -34,7 +34,7 @@
             @enderror
             <div class="box-register">
                 <i class="fas fa-envelope-open-text"></i>
-                <input type="text" placeholder="Email" name="email" id="email" class="form-control rounded-top @error('email') is-invalid @enderror
+                <input type="text" placeholder="Email" name="email" id="email" class="@error('email') rounded-top bg-danger @enderror
 " required value="{{ old('email') }}">
             </div>
             @error('email')
@@ -44,7 +44,7 @@
             @enderror
             <div class="box-register">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" name="password" id="password" class="form-control rounded-top @error('password') is-invalid @enderror" required>
+                <input type="password" placeholder="Password" name="password" id="password" class="@error('password') rounded-top bg-danger @enderror" required>
             </div>
             @error('password')
             <div class="error">
@@ -103,16 +103,33 @@
     }
 
     .register {
+        scale: 0.75;
         position: fixed;
         top: 50%;
-        left: 45%;
-        transform: translate(-30%, -50%);
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: rgba(4, 29, 23, 0.5);
         padding: 50px;
         width: 500px;
         box-shadow: 0px 0px 25px 10px black;
         border-radius: 15px;
     }
+
+    @media (max-width: 768px) {
+
+        .register {
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            transform: translate(-20%, -20%);
+            width: 95vw;
+        }
+    }
+
+
+
+
+
 
     .avatar {
         font-size: 30px;

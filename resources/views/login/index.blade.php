@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <title>Login Page</title>
-    <link rel="stylesheet" href="style.css" media="screen" title="no title">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -28,22 +27,27 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
-
-        <div class="box-login">
-            <i class="fas fa-envelope-open-text"></i>
-            <input type="text" placeholder="Email">
-        </div>
-
-        <div class="box-login">
-            <i class="fas fa-lock"></i>
-            <input type="text" placeholder="Password">
-        </div>
-
-        <button type="submit" name="login" class="btn-login">Login</button>
-        <div class="bottom">
-            <a href="/register">Register</a>
-            <a href="#">Forgot Password</a>
-        </div>
+        <form action="/login" method="post">
+            @csrf
+            <div class="box-login">
+                <i class="fas fa-envelope-open-text"></i>
+                <input type="username" name="username" id="username" placeholder="username" class="@error('username') rounded-top bg-danger @enderror" required>
+            </div>
+            @error('username')
+            <div class="error" style="text-align: center; color:beige;">
+                {{ $message }}
+            </div>
+            @enderror
+            <div class="box-login">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+            <div class="bottom">
+                <a href="/register">Register</a>
+                <a href="#">Forgot Password</a>
+            </div>
+        </form>
     </div>
 </head>
 <style>
@@ -59,15 +63,27 @@
     }
 
     .login {
-        position: fixed;
+        scale: 0.75;
+        position: absolute;
         top: 50%;
-        left: 50%;
+        left: 45%;
         transform: translate(-30%, -50%);
         background: rgba(4, 29, 23, 0.5);
         padding: 50px;
-        width: 550px;
+        width: 30%;
         box-shadow: 0px 0px 25px 10px black;
         border-radius: 15px;
+    }
+
+    @media (max-width: 768px) {
+
+        .login {
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            transform: translate(-20%, -20%);
+            width: 95vw;
+        }
     }
 
     .avatar {

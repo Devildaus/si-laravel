@@ -4,7 +4,7 @@
 <h1 align=center>{{ $title }}</h1></br>
 @if ($posts->count())
 <div class="card mb-3">
-    <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name ?? 'unknown' }}" class="card-img-top" alt="{{ $posts[0]->category->name ?? 'unknown'  }}" style="width:900px; margin:auto">
+    <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name ?? 'unknown' }}" class="card-img-top" alt="{{ $posts[0]->category->name ?? 'unknown'  }}" style="width:100%; margin:auto">
     <div class=" card-body text-center">
         <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
         <p>
