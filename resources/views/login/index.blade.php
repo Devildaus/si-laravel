@@ -31,10 +31,10 @@
             @csrf
             <div class="box-login">
                 <i class="fas fa-envelope-open-text"></i>
-                <input type="username" name="username" id="username" placeholder="username" class="@error('username') rounded-top bg-danger @enderror" required>
+                <input type="username" name="username" id="username" placeholder="username" class="@error('username') rounded-top bg-danger @enderror" required value="{{ old('username') }}">
             </div>
             @error('username')
-            <div class="error" style="text-align: center; color:beige;">
+            <div class=" error" style="text-align: center; color:beige;">
                 {{ $message }}
             </div>
             @enderror

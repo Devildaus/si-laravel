@@ -4,31 +4,46 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h1 class="h2">Create New Post</h1>
 </div>
-<form method="post" action="/dashboard/posts">
+<form method="post" action="/dashboard/posts" class="mb-5">
     @csrf
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" class="form-control" id="title" name="title">
-
+        <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" autofocus value="{{ old('title') }}">
+        @error('title')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
 
     <div class="mb-3">
         <label for="slug" class="form-label">Slug</label>
-        <input type="text" class="form-control" id="slug" name="slug" disabled readonly>
-
+        <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" readonly value="{{ old('slug') }}">
+        @error('slug')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
+
     <div class="mb-3">
         <label for="category" class="form-label">Category</label>
         <select class="form-select" name="category_id">
-            <option selected>Open this select menu</option>
             @foreach ($categories as $category)
+            @if (old('category_id') == $category->id)
+            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+            @else
             <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endif
             @endforeach
         </select>
     </div>
     <div class="mb-3">
-        <label for="body" class="form-label">Category</label>
-        <input id="body" type="hidden" name="body">
+        <label for="body" class="form-label">Body</label>
+        @error('body')
+        <p class="text-danger">{{ $message }}</p>
+        @enderror
+        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
         <trix-editor input="body"></trix-editor>
 
     </div>
@@ -37,19 +52,39 @@
 </form>
 <div class="col-lg-8"></div>
 
+
 <script>
     const title = document.querySelector("#title");
     const slug = document.querySelector("#slug");
+
     title.addEventListener("keyup", function() {
         let preslug = title.value;
         preslug = preslug.replace(/ /g, "-");
         slug.value = preslug.toLowerCase();
-
     });
+
+
+    //hilangkan icon
+
     document.addEventListener('trix-flex-accept', function(e) {
         e.preventDefault();
     })
+
+    //pak dika
+    // const titleElement = document.getElementById('title');
+    // const titleValue = titleElement.value;
+
+    // const slugElement = document.getElementById('slug');
+    // const slugValue = slugElement.value;
+
+    // const lowercaseSlug = slugValue.toLowerCase();
+    // const hyphenatedSlug = lowercaseSlug.replace(/\s/g, '-');
+
+    // slugElement.value = hyphenatedSlug;
 </script>
+
+
+
 
 
 @endsection
