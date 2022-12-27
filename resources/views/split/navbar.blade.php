@@ -1,28 +1,9 @@
 <style>
-  .logo {
-    top: 0;
-    left: 0;
-    z-index: 1;
-    max-width: 100%;
-    height: auto;
-    max-height: 110px;
-    vertical-align: middle;
-    border-style: none;
-    object-fit: cover;
-  }
-
-
-  .login:hover {
+  i:hover {
     transform: scale(1.5);
   }
 </style>
 
-<div class="navbar navbar-dark">
-  <ul class="navbar-nav text-align-center">
-    <a href="/">
-      <img class="logo" src="/img/logo.png" alt="wow"></a>
-  </ul>
-</div>
 <nav class="navbar navbar-expand-md navbar-dark bg-primary d-flex justify-content-between">
   <div class="container" style="justify-content: center;">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +55,7 @@
         </li>
         @else
         <li class="nav-item">
-          <a href="/login" class="nav-link {{ ($active === 'login') ? 'active' : '' }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
         </li>
         @endauth
       </ul>
