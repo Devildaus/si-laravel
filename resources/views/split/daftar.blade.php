@@ -6,7 +6,7 @@
         <ul>
             <h2 class="card-title">Penerimaan Santri Baru</h2>
             <h4 class="card-text">Pondok Pesantren An-Nur 3 Murah Banyu Program Tahfidzul Qur'an dan Pondok Kanak-Kanak</h4><br>
-            <a href="#" class="btn btn-primary">Daftar Sekarang</a>
+            <a href="/daftar-PPDB" class="btn btn-primary">Daftar Sekarang</a>
         </ul>
 
     </div>

@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@include('loader')
 @section('container1')
 @include('split.daftar')
 @endsection
@@ -77,4 +78,3 @@
 
 
 @endsection
-@include('loader')

@@ -10,8 +10,10 @@
     </div>
 </div>
 <script>
+    document.body.style.overflow = "hidden";
     window.addEventListener("load", function() {
         document.getElementById("loader").style.display = "none";
+        document.body.style.overflow = "auto";
     });
 </script>
 <style>

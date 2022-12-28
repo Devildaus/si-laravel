@@ -28,6 +28,12 @@ Route::get('/', function () {
         "posts2" => Post::latest()->where('category_id', 1)->paginate(3)->withQueryString()
     ]);
 });
+Route::get('/daftar-PPDB', function () {
+    return view('PPDB', [
+        'title' => 'PPDB',
+        "active" => 'PPDB',
+    ]);
+});
 
 // Route::get('/login', function () {
 //     return view('login');
