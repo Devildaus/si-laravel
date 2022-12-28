@@ -35,15 +35,15 @@
                 @endforeach
         </div>
 </div>
-
+<div class="d-flex justify-content-end mt-4">
+        <button class="btn btn-primary" style="margin-bottom:1rem;">
+                <a href="/posts?category={{ $posts->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
+        </button>
+</div>
 @else
 <p class="text-center fs-4">Not Found</p>
 @endif
-<div class="d-flex justify-content-end mt-4">
-        <button class="btn btn-primary" style="margin-bottom:1rem;">
-                <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
-        </button>
-</div>
+
 
 
 
@@ -76,15 +76,15 @@
                 @endforeach
         </div>
 </div>
-
-@else
-<p class="text-center fs-4">Not Found</p>
-@endif
 <div class="d-flex justify-content-end mt-4">
         <button class="btn btn-primary" style="margin-bottom:4rem;">
                 <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
         </button>
 </div>
+@else
+<p class="text-center fs-4">Not Found</p>
+@endif
+
 
 <h1 style="margin-bottom: 50px;">Fiqih</h1>
 @if ($posts3->count())
@@ -115,14 +115,14 @@
                 @endforeach
         </div>
 </div>
-
-@else
-<p class="text-center fs-4">Not Found</p>
-@endif
 <div class="d-flex justify-content-end mt-4">
         <button class="btn btn-primary" style="margin-bottom:4rem;">
                 <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
         </button>
 </div>
+@else
+<p class="text-center fs-4">Not Found</p>
+@endif
+
 
 @endsection
