@@ -42,15 +42,34 @@ class DashboardPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             "title" => 'required|max:225',
-            "slug" => 'required|unique:posts',
+            "slug" => 'required',
             "category_id" => 'required',
+            "image" => 'image|file|max:1024',
             "body" => 'required'
-
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+        // Cek apakah slug sudah ada di database
+        $slugExists = Post::where('slug', $request->slug)->exists();
+        if ($slugExists) {
+            // Jika slug sudah ada, tambahkan -angka pada akhir slug
+            $count = 2;
+            while (Post::where('slug', $request->slug . '-' . $count)->exists()) {
+                $count++;
+            }
+            $validatedData['slug'] = $request->slug . '-' . $count;
+        } else {
+            // Jika slug belum ada, gunakan slug yang diinput oleh user
+            $validatedData['slug'] = $request->slug;
+        }
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::words(strip_tags($request->body), 20);
@@ -58,6 +77,7 @@ class DashboardPostController extends Controller
         Post::create($validatedData);
         return redirect('/dashboard/posts')->with('success', 'New Post Has Been Added!');
     }
+
 
     /**
      * Display the specified resource.
@@ -80,7 +100,10 @@ class DashboardPostController extends Controller
      */
     public function edit(post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -92,7 +115,30 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        //
+        $rules = [
+            "title" => 'required|max:225',
+            "category_id" => 'required',
+            "body" => 'required'
+
+        ];
+        if ($request->slug != $post->slug) {
+            $rules['slug'] = 'required|unique:posts';
+        }
+
+        $validatedData = $request->validate($rules);
+
+
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::words(strip_tags($request->body), 20);
+
+        Post::where('id', $post->id)
+            ->update($validatedData);
+
+        if ($post->author->id !== auth()->user()->id) {
+            abort(403);
+        }
+
+        return redirect('/dashboard/posts')->with('success', 'Post Has Been Updated!');
     }
 
     /**
@@ -103,7 +149,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success', 'Post Has Been Deleted!');
     }
     public function checkSlug(request $request)
     {
