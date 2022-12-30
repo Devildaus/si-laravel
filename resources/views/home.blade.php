@@ -36,8 +36,8 @@
         </div>
 </div>
 <div class="d-flex justify-content-end mt-4">
-        <button class="btn btn-primary" style="margin-bottom:1rem;">
-                <a href="/posts?category={{ $posts->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
+        <button class="btn btn-primary" style="margin-bottom:4rem;">
+                <a href="/posts?category={{ $post->category->name }}" class="text-decoration-none text-white">Lebih Banyak</a>
         </button>
 </div>
 @else

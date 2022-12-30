@@ -1,4 +1,3 @@
-<footer>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -27,4 +26,3 @@
             </div>
         </div>
     </div>
-</footer>
