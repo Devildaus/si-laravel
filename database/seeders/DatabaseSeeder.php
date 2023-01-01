@@ -23,14 +23,14 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
             'password' => bcrypt('12345')
         ]);
+        Post::factory(20)->create();
+
         User::create([
             'name' => 'Atif Fahrian',
             'username' => 'Atif',
             'email' => 'atifpunyaemail@gmail.com',
             'password' => bcrypt('12345')
         ]);
-
-        User::factory(3)->create();
 
         Category::create([
             'name' => 'Pengumuman',
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'latest'
         ]);
 
-        Post::factory(30)->create();
+
 
         // Post::create([
         //     'title'=>'Postingan Pertama',

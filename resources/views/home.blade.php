@@ -104,7 +104,7 @@
                                         <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-dark">{{ $post->title }}</a></h5>
                                         <p>
                                                 <small class="text-muted">
-                                                        By. <a href="/post?author={{ $post->author->username }}">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}
+                                                        By. <a href="/post?author={{ $post->author->username }} ?? /post?author=daus">{{ $post->author->name }}</a> {{ $post->created_at->diffForHumans() }}
                                                 </small>
                                         </p>
                                         <p class="card-text">{{ $post->excerpt }}</p>
