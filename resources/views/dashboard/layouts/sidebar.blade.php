@@ -7,12 +7,7 @@
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
-                                <span data-feather="file-text" class="align-text-bottom"></span>
-                                My posts
-                            </a>
-                        </li>
+
                     </ul>
 
                     @can('admin')
@@ -20,6 +15,12 @@
                         <span>Administrator</span>
                     </h6>
                     <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }}" href="/dashboard/posts">
+                                <span data-feather="file-text" class="align-text-bottom"></span>
+                                My posts
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is( 'dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
                                 <span data-feather="grid"></span>
